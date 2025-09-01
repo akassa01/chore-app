@@ -47,7 +47,6 @@ function QualityCheckContent() {
         .eq('week_start_date', lastWeekStartStr)
         .eq('completed', true)
         .neq('user_id', user.id) // Don't show own completed chores
-        .order('created_at')
 
       if (assignmentsError) throw assignmentsError
 

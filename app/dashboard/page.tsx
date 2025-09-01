@@ -40,7 +40,6 @@ function DashboardContent() {
           chore:chores(*)
         `)
         .eq('week_start_date', getCurrentWeekStart())
-        .order('created_at')
 
       if (error) throw error
 

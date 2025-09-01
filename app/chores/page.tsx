@@ -40,7 +40,6 @@ function ChoresContent() {
         `)
         .eq('week_start_date', getCurrentWeekStart())
         .eq('user_id', user.id)
-        .order('created_at')
 
       if (error) throw error
 
