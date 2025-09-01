@@ -62,19 +62,19 @@ export const userThemes: Record<string, UserTheme> = {
     description: 'I am Batman'
   },
   'Alejandro': {
-    name: 'Default',
+    name: 'Peru',
     colors: {
-      primary: '#3B82F6', // Default blue
-      secondary: '#6B7280', // Default gray
-      accent: '#F3F4F6', // Light gray
+      primary: '#DC143C', // Peruvian Red
+      secondary: '#DC143C', // Peruvian Red for secondary elements
+      accent: '#FFF5F5', // Light red tint
       background: '#FFFFFF', // White background
       card: '#FFFFFF', // White cards
-      border: '#E5E7EB', // Light border
-      text: '#111827', // Dark text
-      muted: '#6B7280', // Muted text
+      border: '#FFE4E4', // Light red border
+      text: '#1A202C', // Dark text
+      muted: '#6B7280', // Gray for muted text
     },
-    logo: '🏠',
-    description: 'Clean & Simple'
+    logo: '🇵🇪',
+    description: '¡Viva Perú!'
   }
 }
 

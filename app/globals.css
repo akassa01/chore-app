@@ -269,7 +269,7 @@
 }
 
 .theme-welcome-description {
-  color: var(--secondary) !important;
+  color: var(--muted) !important;
 }
 
 .theme-card-title {
