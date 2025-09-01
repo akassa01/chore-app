@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/rotate-chores",
+      "schedule": "0 0 * * 2"
+    },
+    {
+      "path": "/api/mark-late",
+      "schedule": "59 23 * * 0"
+    }
+  ]
+}
