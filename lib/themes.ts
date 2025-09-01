@@ -13,6 +13,7 @@ export interface UserTheme {
   }
   logo?: string
   description: string
+  welcomeEmoji?: string
 }
 
 export const userThemes: Record<string, UserTheme> = {
@@ -29,7 +30,8 @@ export const userThemes: Record<string, UserTheme> = {
       muted: '#718096', // Muted text
     },
     logo: '🏒',
-    description: 'Go Canucks Go!'
+    description: 'Go Canucks Go!',
+    welcomeEmoji: '🇨🇦'
   },
   'Lucas': {
     name: 'Shake Shack',
@@ -44,7 +46,8 @@ export const userThemes: Record<string, UserTheme> = {
       muted: '#7F8C8D', // Muted text
     },
     logo: '🍔',
-    description: 'Cheese Fries >>>'
+    description: 'Cheese Fries >>>',
+    welcomeEmoji: '🍟'
   },
   'Shanmugam': {
     name: 'Batman',
@@ -59,7 +62,8 @@ export const userThemes: Record<string, UserTheme> = {
       muted: '#CCCCCC', // Light muted text
     },
     logo: '🦇',
-    description: 'I am Batman'
+    description: 'I am Batman',
+    welcomeEmoji: '🦸🏾'
   },
   'Alejandro': {
     name: 'Peru',
@@ -74,7 +78,8 @@ export const userThemes: Record<string, UserTheme> = {
       muted: '#6B7280', // Gray for muted text
     },
     logo: '🇵🇪',
-    description: '¡Viva Perú!'
+    description: '¡Viva Perú!',
+    welcomeEmoji: '🦙'
   }
 }
 

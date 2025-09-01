@@ -106,7 +106,7 @@ function DashboardContent() {
             <span className="text-5xl">{currentTheme?.logo}</span>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold theme-welcome-text">
-                Welcome, {currentUser.name}! ✨
+                Welcome, {currentUser.name}! {currentTheme?.welcomeEmoji || '✨'}
               </h1>
               <p className="theme-welcome-description">{currentTheme?.description}</p>
             </div>
