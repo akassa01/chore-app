@@ -36,14 +36,14 @@ export const userThemes: Record<string, UserTheme> = {
   'Lucas': {
     name: 'Shake Shack',
     colors: {
-      primary: '#FF6B35', // Shake Shack Orange
-      secondary: '#2C3E50', // Dark gray
-      accent: '#F39C12', // Golden yellow
-      background: '#FEFEFE', // Off-white background
-      card: '#FFFFFF', // White cards
-      border: '#E8E8E8', // Light border
-      text: '#2C3E50', // Dark text
-      muted: '#7F8C8D', // Muted text
+      primary: '#00FF41', // Shake Shack Neon Green
+      secondary: '#000000', // Shake Shack Black
+      accent: '#1A1A1A', // Dark gray
+      background: '#000000', // Black background
+      card: '#1A1A1A', // Dark cards
+      border: '#333333', // Dark border
+      text: '#FFFFFF', // White text
+      muted: '#CCCCCC', // Light muted text
     },
     logo: '🍔',
     description: 'Cheese Fries >>>',
