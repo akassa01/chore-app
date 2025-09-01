@@ -65,6 +65,8 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: var(--background) !important;
+    color: var(--text) !important;
   }
 }
 
@@ -246,5 +248,223 @@
 
 .text-muted {
   color: var(--muted) !important;
+}
+
+/* Enhanced theme styling for better visual hierarchy */
+.theme-navbar {
+  background-color: var(--card) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+.theme-navbar-text {
+  color: var(--text) !important;
+}
+
+.theme-navbar-muted {
+  color: var(--muted) !important;
+}
+
+.theme-welcome-text {
+  color: var(--text) !important;
+}
+
+.theme-welcome-description {
+  color: var(--secondary) !important;
+}
+
+.theme-card-title {
+  color: var(--text) !important;
+}
+
+.theme-card-description {
+  color: var(--muted) !important;
+}
+
+.theme-section-title {
+  color: var(--text) !important;
+}
+
+.theme-stats-value {
+  color: var(--primary) !important;
+}
+
+.theme-stats-label {
+  color: var(--muted) !important;
+}
+
+.theme-completed {
+  color: var(--primary) !important;
+}
+
+.theme-pending {
+  color: #F59E0B !important; /* Amber for pending */
+}
+
+.theme-late {
+  color: #EF4444 !important; /* Red for late */
+}
+
+/* Button styling with theme colors */
+.btn-theme-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+}
+
+.btn-theme-primary:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+}
+
+.btn-theme-outline {
+  background-color: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+.btn-theme-outline:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--secondary) !important;
+}
+
+/* Enhanced Card styling - simplified */
+.card-theme {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.card-theme:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Enhanced button styling - simplified */
+.btn-theme-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-theme-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-theme-outline {
+  background-color: transparent !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-theme-outline:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--primary) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Enhanced progress bars - simplified */
+.progress-bar {
+  background-color: var(--primary) !important;
+  border-radius: 6px !important;
+  transition: width 0.3s ease !important;
+}
+
+/* Enhanced status badges - simplified */
+.status-badge {
+  padding: 4px 8px !important;
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Removed pulse animation */
+
+/* Enhanced navbar - simplified */
+.theme-navbar {
+  background-color: var(--card) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Removed floating animation */
+
+/* Enhanced stats cards - simplified */
+.stats-card {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Enhanced loading spinner - simplified */
+.loading-spinner {
+  border: 2px solid var(--border) !important;
+  border-top: 2px solid var(--primary) !important;
+  border-radius: 50% !important;
+  animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Additional visual enhancements */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) !important;
+}
+
+/* Enhanced section titles - simplified */
+.section-title {
+  color: var(--text) !important;
+  position: relative !important;
+}
+
+.section-title::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -4px !important;
+  left: 0 !important;
+  width: 40px !important;
+  height: 2px !important;
+  background-color: var(--primary) !important;
+  border-radius: 1px !important;
+}
+
+/* Enhanced empty state - simplified */
+.empty-state {
+  background-color: var(--accent) !important;
+  border: 2px dashed var(--border) !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.empty-state:hover {
+  border-color: var(--primary) !important;
 }
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { User } from '@/lib/supabaseClient'
-import UserSelect from '@/components/UserSelect'
+import PhotoUserSelect from '@/components/PhotoUserSelect'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 export default function HomePage() {
@@ -32,8 +32,13 @@ export default function HomePage() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-background">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-          <p className="mt-2 text-muted-foreground">Loading...</p>
+          <div className="loading-spinner rounded-full h-12 w-12 mx-auto mb-4"></div>
+          <p className="mt-2 theme-muted text-lg">Loading your app...</p>
+          <div className="mt-4 space-y-2">
+            <div className="h-2 bg-gray-200 rounded-full w-48 mx-auto">
+              <div className="progress-bar h-2 rounded-full" style={{ width: '40%' }}></div>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -41,7 +46,7 @@ export default function HomePage() {
 
   return (
     <ThemeProvider currentUser={currentUser}>
-      <UserSelect onUserSelect={handleUserSelect} />
+      <PhotoUserSelect onUserSelect={handleUserSelect} />
     </ThemeProvider>
   )
 }

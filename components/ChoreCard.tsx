@@ -20,12 +20,12 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
 
   const getStatusIcon = () => {
     if (assignment.completed) {
-      return <CheckCircle className="h-5 w-5 text-green-500" />
+      return <CheckCircle className="h-5 w-5 theme-completed" />
     }
     if (isLate(assignment)) {
-      return <AlertTriangle className="h-5 w-5 text-red-500" />
+      return <AlertTriangle className="h-5 w-5 theme-late" />
     }
-    return <Clock className="h-5 w-5 text-yellow-500" />
+    return <Clock className="h-5 w-5 theme-pending" />
   }
 
   const getStatusText = () => {
@@ -40,12 +40,12 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
 
   const getStatusColor = () => {
     if (assignment.completed) {
-      return 'text-green-600 bg-green-50 border-green-200'
+      return 'theme-completed bg-green-50 border-green-200'
     }
     if (isLate(assignment)) {
-      return 'text-red-600 bg-red-50 border-red-200'
+      return 'theme-late bg-red-50 border-red-200'
     }
-    return 'text-yellow-600 bg-yellow-50 border-yellow-200'
+    return 'theme-pending bg-yellow-50 border-yellow-200'
   }
 
   const completedSubtasks = assignment.subtasks_completed?.length || 0
@@ -53,20 +53,20 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
   const progressPercentage = totalSubtasks > 0 ? (completedSubtasks / totalSubtasks) * 100 : 0
 
   return (
-    <Card className={`transition-all duration-200 hover:shadow-md ${
+    <Card className={`card-theme transition-all duration-200 hover:shadow-md ${
       isLate(assignment) ? 'border-red-200 bg-red-50/50' : ''
     }`}>
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle className="text-lg">{assignment.chore.name}</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-lg theme-card-title">{assignment.chore.name}</CardTitle>
+            <CardDescription className="theme-card-description">
               Assigned to {assignment.user.name}
             </CardDescription>
           </div>
           <div className="flex items-center space-x-2">
             {getStatusIcon()}
-            <span className={`text-sm font-medium px-2 py-1 rounded-full border ${getStatusColor()}`}>
+            <span className={`status-badge ${getStatusColor()}`}>
               {getStatusText()}
             </span>
           </div>
@@ -77,14 +77,14 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
         {/* Progress bar */}
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Progress</span>
-            <span className="font-medium text-foreground">
+            <span className="theme-muted">Progress</span>
+            <span className="font-medium theme-text">
               {completedSubtasks} of {totalSubtasks} subtasks
             </span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-gray-200 rounded-full h-3 shadow-inner">
             <div 
-              className="theme-primary-bg h-2 rounded-full transition-all duration-300"
+              className="progress-bar h-3 rounded-full transition-all duration-500 ease-out"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
@@ -93,12 +93,13 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
         {/* Subtasks preview */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <h4 className="text-sm font-medium text-foreground">Subtasks</h4>
+            <h4 className="text-sm font-medium theme-card-title">Subtasks</h4>
             {isOwnChore && (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setShowChecklist(!showChecklist)}
+                className="btn-theme-outline"
               >
                 {showChecklist ? 'Hide' : 'Manage'}
               </Button>
@@ -111,18 +112,18 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
               return (
                 <div key={index} className="flex items-center space-x-2 text-sm">
                   {isCompleted ? (
-                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <CheckCircle className="h-4 w-4 theme-completed" />
                   ) : (
-                    <Circle className="h-4 w-4 text-gray-400" />
+                    <Circle className="h-4 w-4 theme-muted" />
                   )}
-                  <span className={`${isCompleted ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
+                  <span className={`${isCompleted ? 'line-through theme-muted' : 'theme-text'}`}>
                     {subtask}
                   </span>
                 </div>
               )
             })}
             {assignment.chore.subtasks.length > 3 && (
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm theme-muted">
                 +{assignment.chore.subtasks.length - 3} more...
               </div>
             )}
@@ -141,7 +142,7 @@ export default function ChoreCard({ assignment, onUpdate, isOwnChore }: ChoreCar
         {isLate(assignment) && (
           <div className="bg-red-50 border border-red-200 rounded-md p-3">
             <div className="flex items-center space-x-2">
-              <AlertTriangle className="h-4 w-4 text-red-500" />
+              <AlertTriangle className="h-4 w-4 theme-late" />
               <span className="text-sm font-medium text-red-700">
                 This chore is overdue! Please complete it as soon as possible.
               </span>

@@ -149,10 +149,10 @@ function QualityCheckContent() {
 
   if (loading || !currentUser) {
     return (
-      <div className="min-h-screen theme-background">
+      <div className="min-h-screen bg-background">
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 theme-primary-bg mx-auto"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
             <p className="mt-2 theme-muted">Loading quality check...</p>
           </div>
         </div>
@@ -161,7 +161,7 @@ function QualityCheckContent() {
   }
 
   return (
-    <div className="min-h-screen theme-background">
+    <div className="min-h-screen bg-background">
       <Navbar currentUser={currentUser} onLogout={handleLogout} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -171,14 +171,14 @@ function QualityCheckContent() {
             variant="outline"
             size="sm"
             onClick={() => window.history.back()}
-            className="flex items-center space-x-2 theme-border"
+            className="flex items-center space-x-2 btn-theme-outline"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Back</span>
           </Button>
           <div>
-            <h1 className="text-3xl font-bold theme-text">Quality Check</h1>
-            <p className="theme-muted">
+            <h1 className="text-3xl font-bold theme-welcome-text">Quality Check</h1>
+            <p className="theme-welcome-description">
               Rate how well your housemates completed their chores last week
             </p>
           </div>
@@ -203,9 +203,9 @@ function QualityCheckContent() {
 
         {/* Instructions */}
         {isQualityCheckAvailable && (
-          <Card className="mb-6 theme-card">
+          <Card className="mb-6 card-theme">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2 theme-text">
+              <CardTitle className="flex items-center space-x-2 theme-card-title">
                 <Star className="h-5 w-5" />
                 <span>How to Rate</span>
               </CardTitle>
@@ -243,21 +243,21 @@ function QualityCheckContent() {
 
         {/* Completed Chores to Rate */}
         <div className="space-y-6">
-          <h2 className="text-2xl font-bold theme-text">Rate Last Week's Completed Chores</h2>
+          <h2 className="text-2xl font-bold theme-section-title">Rate Last Week's Completed Chores</h2>
           
           {assignments.length === 0 ? (
-            <Card className="theme-card">
+            <Card className="card-theme">
               <CardContent className="pt-6">
                 <div className="text-center py-12">
-                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-medium mb-2 theme-text">No chores to rate!</h3>
-                  <p className="theme-muted mb-4">
+                  <CheckCircle className="h-16 w-16 theme-completed mx-auto mb-4" />
+                  <h3 className="text-xl font-medium mb-2 theme-card-title">No chores to rate!</h3>
+                  <p className="theme-card-description mb-4">
                     All completed chores from last week have already been rated or there were no completed chores.
                   </p>
                   <Button
                     variant="outline"
                     onClick={() => window.location.href = '/dashboard'}
-                    className="theme-border"
+                    className="btn-theme-outline"
                   >
                     Back to Dashboard
                   </Button>
@@ -270,12 +270,12 @@ function QualityCheckContent() {
               const isSubmitting = submitting === assignment.id
 
               return (
-                <Card key={assignment.id} className="theme-card">
+                <Card key={assignment.id} className="card-theme">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle className="text-lg theme-text">{assignment.chore.name}</CardTitle>
-                        <CardDescription className="theme-muted">
+                        <CardTitle className="text-lg theme-card-title">{assignment.chore.name}</CardTitle>
+                        <CardDescription className="theme-card-description">
                           Completed by {assignment.user.name} last week
                         </CardDescription>
                       </div>
@@ -288,11 +288,11 @@ function QualityCheckContent() {
                     <div className="space-y-4">
                       {/* Subtasks completed */}
                       <div>
-                        <h4 className="text-sm font-medium mb-2 theme-text">Completed subtasks:</h4>
+                        <h4 className="text-sm font-medium mb-2 theme-card-title">Completed subtasks:</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           {assignment.chore.subtasks.map((subtask, index) => (
                             <div key={index} className="flex items-center space-x-2 text-sm">
-                              <CheckCircle className="h-4 w-4 text-green-500" />
+                              <CheckCircle className="h-4 w-4 theme-completed" />
                               <span className="theme-text">{subtask}</span>
                             </div>
                           ))}
@@ -302,7 +302,7 @@ function QualityCheckContent() {
                       {/* Rating */}
                       {isQualityCheckAvailable && (
                         <div>
-                          <h4 className="text-sm font-medium mb-3 theme-text">Rate the quality:</h4>
+                          <h4 className="text-sm font-medium mb-3 theme-card-title">Rate the quality:</h4>
                           <div className="flex items-center space-x-4">
                             <div className="flex space-x-1">
                               {[1, 2, 3, 4, 5].map((star) => (
@@ -324,7 +324,7 @@ function QualityCheckContent() {
                               {currentRating > 0 ? `${currentRating}/5 stars` : 'Not rated yet'}
                             </span>
                             {isSubmitting && (
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 theme-primary-bg"></div>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
                             )}
                           </div>
                         </div>
@@ -339,21 +339,21 @@ function QualityCheckContent() {
 
         {/* Summary */}
         {isQualityCheckAvailable && assignments.length > 0 && (
-          <Card className="mt-8 theme-card">
+          <Card className="mt-8 card-theme">
             <CardHeader>
-              <CardTitle className="theme-text">Rating Summary</CardTitle>
-              <CardDescription className="theme-muted">
+              <CardTitle className="theme-card-title">Rating Summary</CardTitle>
+              <CardDescription className="theme-card-description">
                 Your ratings for last week's completed chores
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="theme-text">Chores rated:</span>
+                  <span className="theme-card-title">Chores rated:</span>
                   <span className="font-medium theme-text">{ratings.length} of {assignments.length}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="theme-text">Average rating:</span>
+                  <span className="theme-card-title">Average rating:</span>
                   <span className="font-medium theme-text">
                     {ratings.length > 0 
                       ? (ratings.reduce((sum, r) => sum + r.rating, 0) / ratings.length).toFixed(1)
