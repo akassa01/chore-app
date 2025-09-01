@@ -107,16 +107,15 @@ export default function Checklist({ assignment, onUpdate }: ChecklistProps) {
   const allCompleted = completedCount === totalCount
 
   return (
-    <div className="border-t pt-4 space-y-4 theme-border">
+    <div className="border-t pt-4 space-y-4 border-border">
       <div className="flex items-center justify-between">
-        <h4 className="font-medium theme-text">Manage Subtasks</h4>
+        <h4 className="font-medium text-foreground">Manage Subtasks</h4>
         <div className="flex space-x-2">
           <Button
             variant="outline"
             size="sm"
             onClick={handleCompleteAll}
             disabled={updating !== null || allCompleted}
-            className="theme-border"
           >
             Complete All
           </Button>
@@ -125,7 +124,6 @@ export default function Checklist({ assignment, onUpdate }: ChecklistProps) {
             size="sm"
             onClick={handleUncompleteAll}
             disabled={updating !== null || completedCount === 0}
-            className="theme-border"
           >
             Reset All
           </Button>
@@ -152,20 +150,20 @@ export default function Checklist({ assignment, onUpdate }: ChecklistProps) {
               />
               <span
                 className={`flex-1 text-sm ${
-                  isCompleted ? 'line-through theme-muted' : 'theme-text'
+                  isCompleted ? 'line-through text-muted-foreground' : 'text-foreground'
                 }`}
               >
                 {subtask}
               </span>
               {isUpdating && (
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 theme-primary-bg"></div>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
               )}
             </div>
           )
         })}
       </div>
 
-      <div className="text-sm theme-muted text-center">
+      <div className="text-sm text-muted-foreground text-center">
         {completedCount} of {totalCount} subtasks completed
       </div>
     </div>

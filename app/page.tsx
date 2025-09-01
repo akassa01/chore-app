@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { User } from '@/lib/supabaseClient'
 import UserSelect from '@/components/UserSelect'
+import { ThemeProvider } from '@/components/ThemeProvider'
 
 export default function HomePage() {
   const [currentUser, setCurrentUser] = useState<User | null>(null)
@@ -29,7 +30,7 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen bg-background">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
           <p className="mt-2 text-muted-foreground">Loading...</p>
@@ -38,5 +39,9 @@ export default function HomePage() {
     )
   }
 
-  return <UserSelect onUserSelect={handleUserSelect} />
+  return (
+    <ThemeProvider currentUser={currentUser}>
+      <UserSelect onUserSelect={handleUserSelect} />
+    </ThemeProvider>
+  )
 }

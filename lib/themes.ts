@@ -44,7 +44,7 @@ export const userThemes: Record<string, UserTheme> = {
       muted: '#7F8C8D', // Muted text
     },
     logo: '🍔',
-    description: 'Shake Shack Style'
+    description: 'Cheese Fries >>>'
   },
   'Shanmugam': {
     name: 'Batman',

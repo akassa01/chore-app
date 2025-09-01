@@ -24,6 +24,16 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
+    
+    /* Theme variables - these will be overridden by applyUserTheme */
+    --primary: #3B82F6;
+    --secondary: #6B7280;
+    --accent: #F3F4F6;
+    --background: #FFFFFF;
+    --card: #FFFFFF;
+    --border: #E5E7EB;
+    --text: #111827;
+    --muted: #6B7280;
   }
 
   .dark {
@@ -47,18 +57,6 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 94.1%;
   }
-
-  /* Custom theme properties */
-  :root {
-    --user-primary: #3B82F6;
-    --user-secondary: #6B7280;
-    --user-accent: #F3F4F6;
-    --user-background: #FFFFFF;
-    --user-card: #FFFFFF;
-    --user-border: #E5E7EB;
-    --user-text: #111827;
-    --user-muted: #6B7280;
-  }
 }
 
 @layer base {
@@ -70,44 +68,183 @@
   }
 }
 
-/* Custom theme utility classes */
+/* Theme utility classes */
 .theme-primary {
-  color: var(--user-primary);
+  color: var(--primary) !important;
 }
 
 .theme-primary-bg {
-  background-color: var(--user-primary);
+  background-color: var(--primary) !important;
+}
+
+.theme-primary-border {
+  border-color: var(--primary) !important;
 }
 
 .theme-secondary {
-  color: var(--user-secondary);
+  color: var(--secondary) !important;
 }
 
 .theme-secondary-bg {
-  background-color: var(--user-secondary);
+  background-color: var(--secondary) !important;
+}
+
+.theme-secondary-border {
+  border-color: var(--secondary) !important;
 }
 
 .theme-accent {
-  background-color: var(--user-accent);
+  background-color: var(--accent) !important;
+}
+
+.theme-accent-text {
+  color: var(--accent) !important;
 }
 
 .theme-background {
-  background-color: var(--user-background);
+  background-color: var(--background) !important;
 }
 
 .theme-card {
-  background-color: var(--user-card);
-  border-color: var(--user-border);
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
 }
 
 .theme-text {
-  color: var(--user-text);
+  color: var(--text) !important;
 }
 
 .theme-muted {
-  color: var(--user-muted);
+  color: var(--muted) !important;
 }
 
 .theme-border {
-  border-color: var(--user-border);
+  border-color: var(--border) !important;
 }
+
+/* Button theme variants */
+.theme-button-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border-color: var(--primary) !important;
+}
+
+.theme-button-primary:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+}
+
+.theme-button-secondary {
+  background-color: var(--secondary) !important;
+  color: white !important;
+  border-color: var(--secondary) !important;
+}
+
+.theme-button-outline {
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.theme-button-outline:hover {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+/* Card theme variants */
+.theme-card-hover:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Input theme variants */
+.theme-input {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.theme-input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2) !important;
+}
+
+/* Link theme variants */
+.theme-link {
+  color: var(--primary) !important;
+}
+
+.theme-link:hover {
+  color: var(--primary) !important;
+  opacity: 0.8;
+}
+
+/* Override Tailwind's semantic colors with our theme variables */
+.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.border-secondary {
+  border-color: var(--secondary) !important;
+}
+
+.bg-accent {
+  background-color: var(--accent) !important;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.border-accent {
+  border-color: var(--accent) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
+.text-foreground {
+  color: var(--text) !important;
+}
+
+.bg-card {
+  background-color: var(--card) !important;
+}
+
+.text-card-foreground {
+  color: var(--text) !important;
+}
+
+.border-border {
+  border-color: var(--border) !important;
+}
+
+.text-muted-foreground {
+  color: var(--muted) !important;
+}
+
+.bg-muted {
+  background-color: var(--accent) !important;
+}
+
+.text-muted {
+  color: var(--muted) !important;
+}
+

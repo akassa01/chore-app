@@ -20,17 +20,17 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
   }
 
   return (
-    <nav className="theme-background theme-border border-b">
+    <nav className="bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-semibold theme-text">Chore Tracker</h1>
+            <h1 className="text-xl font-semibold text-foreground">Chore Tracker</h1>
             <div className="hidden md:flex items-center space-x-2">
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => router.push('/dashboard')}
-                className="flex items-center space-x-1 theme-text hover:theme-accent"
+                className="flex items-center space-x-1"
               >
                 <Home className="h-4 w-4" />
                 <span>Dashboard</span>
@@ -39,7 +39,7 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => router.push('/chores')}
-                className="flex items-center space-x-1 theme-text hover:theme-accent"
+                className="flex items-center space-x-1"
               >
                 <CheckSquare className="h-4 w-4" />
                 <span>My Chores</span>
@@ -48,7 +48,7 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => router.push('/quality-check')}
-                className="flex items-center space-x-1 theme-text hover:theme-accent"
+                className="flex items-center space-x-1"
               >
                 <Star className="h-4 w-4" />
                 <span>Quality Check</span>
@@ -57,14 +57,14 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
           </div>
           
           <div className="flex items-center space-x-4">
-            <span className="text-sm theme-muted">
+            <span className="text-sm text-muted-foreground">
               Welcome, {currentUser.name}
             </span>
             <Button
               variant="outline"
               size="sm"
               onClick={handleLogout}
-              className="flex items-center space-x-1 theme-border"
+              className="flex items-center space-x-1"
             >
               <LogOut className="h-4 w-4" />
               <span className="hidden sm:inline">Logout</span>
@@ -74,13 +74,13 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
       </div>
       
       {/* Mobile navigation */}
-      <div className="md:hidden theme-border border-t">
+      <div className="md:hidden border-t border-border">
         <div className="flex justify-around py-2">
           <Button
             variant="ghost"
             size="sm"
             onClick={() => router.push('/dashboard')}
-            className="flex flex-col items-center space-y-1 theme-text hover:theme-accent"
+            className="flex flex-col items-center space-y-1"
           >
             <Home className="h-4 w-4" />
             <span className="text-xs">Dashboard</span>
@@ -89,7 +89,7 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
             variant="ghost"
             size="sm"
             onClick={() => router.push('/chores')}
-            className="flex flex-col items-center space-y-1 theme-text hover:theme-accent"
+            className="flex flex-col items-center space-y-1"
           >
             <CheckSquare className="h-4 w-4" />
             <span className="text-xs">Chores</span>
@@ -98,7 +98,7 @@ export default function Navbar({ currentUser, onLogout }: NavbarProps) {
             variant="ghost"
             size="sm"
             onClick={() => router.push('/quality-check')}
-            className="flex flex-col items-center space-y-1 theme-text hover:theme-accent"
+            className="flex flex-col items-center space-x-1"
           >
             <Star className="h-4 w-4" />
             <span className="text-xs">Quality</span>

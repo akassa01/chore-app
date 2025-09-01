@@ -80,11 +80,11 @@ function DashboardContent() {
 
   if (loading || !currentUser) {
     return (
-      <div className="min-h-screen theme-background">
+      <div className="min-h-screen bg-background">
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 theme-primary-bg mx-auto"></div>
-            <p className="mt-2 theme-muted">Loading dashboard...</p>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+            <p className="mt-2 text-muted-foreground">Loading dashboard...</p>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ function DashboardContent() {
   }
 
   return (
-    <div className="min-h-screen theme-background">
+    <div className="min-h-screen bg-background">
       <Navbar currentUser={currentUser} onLogout={handleLogout} />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -101,10 +101,10 @@ function DashboardContent() {
           <div className="flex items-center justify-center space-x-3 mb-4">
             <span className="text-4xl">{currentTheme?.logo}</span>
             <div>
-              <h1 className="text-3xl font-bold theme-text">
+              <h1 className="text-3xl font-bold text-foreground">
                 Welcome, {currentUser.name}!
               </h1>
-              <p className="theme-muted">{currentTheme?.description}</p>
+              <p className="text-muted-foreground">{currentTheme?.description}</p>
             </div>
           </div>
         </div>
@@ -128,37 +128,37 @@ function DashboardContent() {
 
         {/* Summary Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="theme-card">
+          <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg theme-text">My Chores</CardTitle>
+              <CardTitle className="text-lg">My Chores</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold theme-primary">{totalChores}</div>
-              <p className="text-sm theme-muted">
+              <div className="text-2xl font-bold text-primary">{totalChores}</div>
+              <p className="text-sm text-muted-foreground">
                 Assigned this week
               </p>
             </CardContent>
           </Card>
 
-          <Card className="theme-card">
+          <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg theme-text">Completed</CardTitle>
+              <CardTitle className="text-lg">Completed</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-green-600">{completedChores}</div>
-              <p className="text-sm theme-muted">
+              <p className="text-sm text-muted-foreground">
                 {totalChores > 0 ? `${Math.round((completedChores / totalChores) * 100)}% done` : 'No chores assigned'}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="theme-card">
+          <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg theme-text">Pending</CardTitle>
+              <CardTitle className="text-lg">Pending</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-yellow-600">{totalChores - completedChores}</div>
-              <p className="text-sm theme-muted">
+              <p className="text-sm text-muted-foreground">
                 Due by Sunday 11:59 PM
               </p>
             </CardContent>
@@ -168,23 +168,22 @@ function DashboardContent() {
         {/* My Chores Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-bold theme-text">My Chores This Week</h2>
+            <h2 className="text-2xl font-bold text-foreground">My Chores This Week</h2>
             <Button
               variant="outline"
               onClick={() => window.location.href = '/chores'}
-              className="theme-border"
             >
               View All
             </Button>
           </div>
           
           {myChores.length === 0 ? (
-            <Card className="theme-card">
+            <Card>
               <CardContent className="pt-6">
                 <div className="text-center py-8">
                   <CheckCircle className="h-12 w-12 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium mb-2 theme-text">No chores assigned!</h3>
-                  <p className="theme-muted">
+                  <h3 className="text-lg font-medium mb-2 text-foreground">No chores assigned!</h3>
+                  <p className="text-muted-foreground">
                     You're all caught up for this week.
                   </p>
                 </div>
@@ -206,7 +205,7 @@ function DashboardContent() {
 
         {/* All House Chores Section */}
         <div>
-          <h2 className="text-2xl font-bold mb-4 theme-text">All House Chores</h2>
+          <h2 className="text-2xl font-bold mb-4 text-foreground">All House Chores</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {assignments.map((assignment) => (
               <ChoreCard
