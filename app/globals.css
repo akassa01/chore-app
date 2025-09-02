@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Fredoka+One&family=Creepster&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,7 +27,7 @@
     --ring: 221.2 83.2% 53.3%;
     --radius: 0.5rem;
     
-    /* Theme variables - these will be overridden by applyUserTheme */
+    /* Default theme variables */
     --primary: #3B82F6;
     --secondary: #6B7280;
     --accent: #F3F4F6;
@@ -34,6 +36,7 @@
     --border: #E5E7EB;
     --text: #111827;
     --muted: #6B7280;
+    --theme-font: 'Inter', sans-serif;
   }
 
   .dark {
@@ -66,9 +69,313 @@
   body {
     @apply bg-background text-foreground;
     background-color: var(--background) !important;
+    background-image: var(--theme-background-image, none) !important;
     color: var(--text) !important;
+    font-family: var(--theme-font) !important;
+    background-size: cover, 100px 100px !important;
+    background-attachment: fixed, scroll !important;
+    background-repeat: no-repeat, repeat !important;
   }
 }
+
+/* ========== DEFAULT THEME ========== */
+.default-theme .card-theme {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.default-theme .card-theme:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.default-theme .btn-theme-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.2s ease !important;
+}
+
+.default-theme .btn-theme-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ========== HOCKEY THEME (Arman) ========== */
+.hockey-theme {
+  --card-shadow: 0 4px 12px rgba(0, 135, 82, 0.1);
+  --button-transform: translateY(-2px) scale(1.02);
+}
+
+.hockey-theme .card-theme {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 16px !important;
+  box-shadow: 
+    var(--card-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.hockey-theme .card-theme::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+.hockey-theme .card-theme:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 
+    0 8px 20px rgba(0, 135, 82, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+.hockey-theme .btn-theme-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 4px 12px rgba(0, 135, 82, 0.3) !important;
+}
+
+.hockey-theme .btn-theme-primary:hover {
+  transform: var(--button-transform) !important;
+  box-shadow: 0 8px 20px rgba(0, 135, 82, 0.4) !important;
+}
+
+.hockey-theme h1, .hockey-theme h2, .hockey-theme h3 {
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 135, 82, 0.1) !important;
+}
+
+/* ========== RESTAURANT THEME (Lucas) ========== */
+.restaurant-theme {
+  --neon-glow: 0 0 10px var(--primary);
+  --card-glow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.restaurant-theme .card-theme {
+  background: 
+    linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--card-glow) !important;
+  position: relative;
+}
+
+.restaurant-theme .card-theme::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 18px;
+  background: linear-gradient(45deg, transparent 48%, var(--primary) 49%, var(--primary) 51%, transparent 52%);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.restaurant-theme .card-theme:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 
+    var(--neon-glow),
+    0 8px 25px rgba(0, 0, 0, 0.5) !important;
+  border-color: var(--secondary) !important;
+}
+
+.restaurant-theme .btn-theme-primary {
+  background: var(--primary) !important;
+  color: var(--background) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 25px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  box-shadow: var(--neon-glow) !important;
+  animation: pulse-neon 2s infinite;
+}
+
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: var(--neon-glow); }
+  50% { box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary); }
+}
+
+.restaurant-theme .btn-theme-primary:hover {
+  transform: scale(1.05) !important;
+  background: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+
+.restaurant-theme h1, .restaurant-theme h2, .restaurant-theme h3 {
+  text-shadow: var(--neon-glow) !important;
+  font-weight: 800 !important;
+}
+
+/* ========== CAVE THEME (Shanmugam) ========== */
+.cave-theme {
+  --gold-glow: 0 0 15px rgba(255, 215, 0, 0.3);
+  --cave-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.cave-theme .card-theme {
+  background: 
+    radial-gradient(ellipse at top, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%) !important;
+  border: 1px solid var(--primary) !important;
+  border-radius: 15px !important;
+  box-shadow: 
+    var(--cave-shadow),
+    0 4px 20px rgba(0, 0, 0, 0.7) !important;
+  position: relative;
+}
+
+.cave-theme .card-theme::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
+  border-radius: 17px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.cave-theme .card-theme:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    var(--cave-shadow),
+    var(--gold-glow),
+    0 8px 30px rgba(0, 0, 0, 0.8) !important;
+}
+
+.cave-theme .btn-theme-primary {
+  background: linear-gradient(135deg, #333333 0%, var(--primary) 100%) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  text-transform: capitalize !important;
+  box-shadow: var(--gold-glow) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.cave-theme .btn-theme-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cave-theme .btn-theme-primary:hover::before {
+  left: 100%;
+}
+
+.cave-theme .btn-theme-primary:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    var(--gold-glow),
+    0 6px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+.cave-theme h1, .cave-theme h2, .cave-theme h3 {
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  font-weight: 600 !important;
+}
+
+/* ========== PERU THEME (Alejandro) ========== */
+.peru-theme {
+  --warm-glow: 0 2px 8px rgba(220, 20, 60, 0.2);
+  --cultural-shadow: 0 4px 15px rgba(139, 69, 19, 0.15);
+}
+
+.peru-theme .card-theme {
+  background: 
+    linear-gradient(135deg, #ffffff 0%, #fffbf5 50%, #fff8f0 100%) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--cultural-shadow) !important;
+  position: relative;
+}
+
+.peru-theme .card-theme::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.peru-theme .card-theme:hover {
+  transform: translateY(-3px) rotate(0.5deg) !important;
+  box-shadow: 
+    var(--warm-glow),
+    var(--cultural-shadow) !important;
+}
+
+.peru-theme .btn-theme-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  box-shadow: var(--warm-glow) !important;
+  position: relative;
+}
+
+.peru-theme .btn-theme-primary::before {
+  content: '✨';
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.peru-theme .btn-theme-primary:hover::before {
+  opacity: 1;
+}
+
+.peru-theme .btn-theme-primary:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 
+    var(--warm-glow),
+    0 6px 20px rgba(220, 20, 60, 0.3) !important;
+}
+
+.peru-theme h1, .peru-theme h2, .peru-theme h3 {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* ========== EXISTING UTILITY CLASSES (Updated) ========== */
 
 /* Theme utility classes */
 .theme-primary {
@@ -124,136 +431,11 @@
   border-color: var(--border) !important;
 }
 
-/* Button theme variants */
-.theme-button-primary {
-  background-color: var(--primary) !important;
-  color: white !important;
-  border-color: var(--primary) !important;
-}
-
-.theme-button-primary:hover {
-  background-color: var(--primary) !important;
-  opacity: 0.9;
-}
-
-.theme-button-secondary {
-  background-color: var(--secondary) !important;
-  color: white !important;
-  border-color: var(--secondary) !important;
-}
-
-.theme-button-outline {
-  background-color: transparent !important;
-  color: var(--primary) !important;
-  border-color: var(--primary) !important;
-}
-
-.theme-button-outline:hover {
-  background-color: var(--primary) !important;
-  color: white !important;
-}
-
-/* Card theme variants */
-.theme-card-hover:hover {
-  border-color: var(--primary) !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Input theme variants */
-.theme-input {
-  background-color: var(--card) !important;
-  border-color: var(--border) !important;
-  color: var(--text) !important;
-}
-
-.theme-input:focus {
-  border-color: var(--primary) !important;
-  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2) !important;
-}
-
-/* Link theme variants */
-.theme-link {
-  color: var(--primary) !important;
-}
-
-.theme-link:hover {
-  color: var(--primary) !important;
-  opacity: 0.8;
-}
-
-/* Override Tailwind's semantic colors with our theme variables */
-.bg-primary {
-  background-color: var(--primary) !important;
-}
-
-.text-primary {
-  color: var(--primary) !important;
-}
-
-.border-primary {
-  border-color: var(--primary) !important;
-}
-
-.bg-secondary {
-  background-color: var(--secondary) !important;
-}
-
-.text-secondary {
-  color: var(--secondary) !important;
-}
-
-.border-secondary {
-  border-color: var(--secondary) !important;
-}
-
-.bg-accent {
-  background-color: var(--accent) !important;
-}
-
-.text-accent {
-  color: var(--accent) !important;
-}
-
-.border-accent {
-  border-color: var(--accent) !important;
-}
-
-.bg-background {
-  background-color: var(--background) !important;
-}
-
-.text-foreground {
-  color: var(--text) !important;
-}
-
-.bg-card {
-  background-color: var(--card) !important;
-}
-
-.text-card-foreground {
-  color: var(--text) !important;
-}
-
-.border-border {
-  border-color: var(--border) !important;
-}
-
-.text-muted-foreground {
-  color: var(--muted) !important;
-}
-
-.bg-muted {
-  background-color: var(--accent) !important;
-}
-
-.text-muted {
-  color: var(--muted) !important;
-}
-
 /* Enhanced theme styling for better visual hierarchy */
 .theme-navbar {
   background-color: var(--card) !important;
   border-bottom-color: var(--border) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .theme-navbar-text {
@@ -297,71 +479,24 @@
 }
 
 .theme-pending {
-  color: #F59E0B !important; /* Amber for pending */
+  color: #F59E0B !important;
 }
 
 .theme-late {
-  color: #EF4444 !important; /* Red for late */
+  color: #EF4444 !important;
 }
 
-/* Button styling with theme colors */
-.btn-theme-primary {
-  background-color: var(--primary) !important;
-  color: white !important;
-  border-color: var(--primary) !important;
-}
-
-.btn-theme-primary:hover {
-  background-color: var(--primary) !important;
-  opacity: 0.9;
-}
-
-.btn-theme-outline {
-  background-color: transparent !important;
-  color: var(--text) !important;
-  border-color: var(--border) !important;
-}
-
-.btn-theme-outline:hover {
-  background-color: var(--accent) !important;
-  border-color: var(--secondary) !important;
-}
-
-/* Enhanced Card styling - simplified */
+/* Enhanced Card styling - now theme-specific */
 .card-theme {
-  background-color: var(--card) !important;
-  border-color: var(--border) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.card-theme:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Enhanced button styling - simplified */
-.btn-theme-primary {
-  background-color: var(--primary) !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.2s ease !important;
-}
-
-.btn-theme-primary:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
-}
-
+/* Enhanced button styling */
 .btn-theme-outline {
   background-color: transparent !important;
   color: var(--text) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 8px !important;
-  transition: all 0.2s ease !important;
+  border: 2px solid var(--border) !important;
+  transition: all 0.3s ease !important;
 }
 
 .btn-theme-outline:hover {
@@ -370,51 +505,33 @@
   transform: translateY(-1px) !important;
 }
 
-/* Enhanced progress bars - simplified */
+/* Enhanced progress bars */
 .progress-bar {
   background-color: var(--primary) !important;
   border-radius: 6px !important;
-  transition: width 0.3s ease !important;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Enhanced status badges - simplified */
+/* Enhanced status badges */
 .status-badge {
-  padding: 4px 8px !important;
-  border-radius: 12px !important;
-  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
   font-size: 0.75rem !important;
   transition: all 0.2s ease !important;
 }
 
-/* Removed pulse animation */
-
-/* Enhanced navbar - simplified */
-.theme-navbar {
-  background-color: var(--card) !important;
-  border-bottom: 1px solid var(--border) !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Removed floating animation */
-
-/* Enhanced stats cards - simplified */
+/* Enhanced stats cards */
 .stats-card {
   background-color: var(--card) !important;
   border: 1px solid var(--border) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  transition: all 0.2s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.stats-card:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Enhanced loading spinner - simplified */
+/* Enhanced loading spinner */
 .loading-spinner {
-  border: 2px solid var(--border) !important;
-  border-top: 2px solid var(--primary) !important;
+  border: 3px solid var(--border) !important;
+  border-top: 3px solid var(--primary) !important;
   border-radius: 50% !important;
   animation: spin 1s linear infinite !important;
 }
@@ -424,47 +541,55 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Additional visual enhancements */
-.glass-effect {
-  background: rgba(255, 255, 255, 0.25) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-}
-
-.hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px) !important;
-}
-
-/* Enhanced section titles - simplified */
+/* Section titles with theme-specific styling */
 .section-title {
   color: var(--text) !important;
   position: relative !important;
+  padding-bottom: 8px !important;
 }
 
 .section-title::after {
   content: '' !important;
   position: absolute !important;
-  bottom: -4px !important;
+  bottom: 0 !important;
   left: 0 !important;
-  width: 40px !important;
-  height: 2px !important;
-  background-color: var(--primary) !important;
-  border-radius: 1px !important;
+  width: 50px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+  border-radius: 2px !important;
 }
 
-/* Enhanced empty state - simplified */
+/* Empty state styling */
 .empty-state {
   background-color: var(--accent) !important;
   border: 2px dashed var(--border) !important;
-  border-radius: 12px !important;
-  transition: all 0.2s ease !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
 }
 
 .empty-state:hover {
   border-color: var(--primary) !important;
+  background-color: var(--card) !important;
 }
 
+/* Responsive font sizes for theme fonts */
+@media (max-width: 768px) {
+  .hockey-theme h1 { font-size: 2rem !important; }
+  .restaurant-theme h1 { font-size: 1.8rem !important; }
+  .cave-theme h1 { font-size: 2.2rem !important; }
+  .peru-theme h1 { font-size: 2rem !important; }
+}
+
+/* Print styles */
+@media print {
+  .card-theme::before,
+  .card-theme::after,
+  .btn-theme-primary::before {
+    display: none !important;
+  }
+  
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}
