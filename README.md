@@ -1,6 +1,6 @@
 # Chore Tracker App
 
-A Next.js application for managing weekly rotating chores among roommates. Built with TypeScript, TailwindCSS, shadcn/ui, and Supabase.
+A Next.js application for managing weekly rotating chores among roommates. Built with TypeScript, TailwindCSS, shadcn/ui, and Supabase. The app is currently deployed via Vercel at monastery-chores.vercel.app.
 
 ## Features
 
